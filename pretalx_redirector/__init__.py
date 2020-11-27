@@ -3,6 +3,7 @@ import psycopg2
 from configparser import ConfigParser
 from flask import Flask, redirect
 from os import environ
+from os.path import abspath, dirname
 from uuid import uuid4
 
 PROJECT_ROOT = dirname(dirname(abspath(__file__)))
