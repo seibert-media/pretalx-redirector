@@ -49,7 +49,7 @@ def index():
 
 @app.route('/<code>')
 def redirect_to_talk_url(code):
-    details = get_submission_details_for_code(code)
+    details = get_submission_details_for_code(code.upper())
 
     if details:
         return redirect('https://talks.seibert-media.net/{slug}/talk/{code}/feedback/'.format(
