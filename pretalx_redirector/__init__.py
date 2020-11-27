@@ -1,5 +1,5 @@
 import logging
-psycopg2
+import psycopg2
 from configparser import ConfigParser
 from flask import Flask, redirect
 from os import environ
