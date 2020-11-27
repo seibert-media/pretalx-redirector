@@ -21,11 +21,11 @@ config.read(environ['APP_CONFIG'])
 
 pg_pool = psycopg2.pool.ThreadedConnectionPool(
     minconn=1,
-    maxconn=5,
-    user=config['pg_user'],
-    password=config['pg_pass'],
-    database=config['pg_db'],
-    host=config['db_host']
+    maxconn=config['database']['max_conns'],
+    user=config['database']['user'],
+    password=config['database']['pass'],
+    database=config['database']['database'],
+    host=config['database']['host']
 )
 
 def get_submission_details_for_code(code):
