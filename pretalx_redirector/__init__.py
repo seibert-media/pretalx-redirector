@@ -44,7 +44,7 @@ def get_submission_details_for_code(code):
 
 @app.route('/')
 def index():
-    return redirect('https://talks.seibert-media.net')
+    return redirect(config['pretalx']['baseurl'])
 
 
 @app.route('/<code>')
@@ -52,9 +52,9 @@ def redirect_to_talk_url(code):
     details = get_submission_details_for_code(code.upper())
 
     if details:
-        return redirect('https://talks.seibert-media.net/{slug}/talk/{code}/feedback/'.format(
+        return redirect(config['pretalx']['baseurl'] + '/{slug}/talk/{code}/feedback/'.format(
             slug=details[1],
             code=details[0],
         ))
 
-    return redirect('https://talks.seibert-media.net')
+    return redirect(config['pretalx']['baseurl'])
